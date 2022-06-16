@@ -1,9 +1,22 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for (let m = 0; m < array.length; m++) {
+    const complement = target - array[m];
+    for (let l = m + 1; l < array.length; l++) {
+      if (array[l] === complement) return true;
+    }
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  iterate over the array of numbers
+    for the current number, identify a complementary number that adds to our target
+    iterate over the remaining numbers in the array
+      check if any of the remaining numbers is the complement
+      if so, return true
+ if we reach the end of the array, return false
 */
 
 /* 
